@@ -37,6 +37,10 @@ class UrlGenerator extends \Illuminate\Routing\UrlGenerator
         $this->parser = app(Engine::class);
         $forcedRoot = env('APP_URL',$request->root());
 
+        if(isset($_ENV['HTTP_X_FORWARDED_HOST']) AND env("APP_URL_TYPE") === 'HTTP_X_FORWARDED_HOST' ) {
+            $forcedRoot = $_ENV['HTTP_X_FORWARDED_SCHEME'].'://'. $_ENV['HTTP_X_FORWARDED_HOST'];
+        }
+        
         if (defined('LOCALE')) {
             $forcedRoot.='/'.LOCALE;
         }
