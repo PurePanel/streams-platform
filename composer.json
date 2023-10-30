@@ -19,6 +19,12 @@
         "nicmart/string-template": "^0.1",
         "ezyang/htmlpurifier": "^4.16"
     },
+     "require-dev": {
+        "streams/testing": "^1.0",
+        "mockery/mockery": "^1.4",
+        "phpunit/phpunit": "^9.5",
+        "fakerphp/faker": "^1.9"
+    },
     "autoload": {
         "psr-4": {
             "Anomaly\\Streams\\Platform\\": "src/"
