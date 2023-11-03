@@ -135,6 +135,18 @@ trait Translatable
         return $this->getTranslationOrNew($locale);
     }
 
+    /*
+     * Check Translation Nullable
+     */
+    public function checkTranslation($translation)
+    {
+        if (!empty($translation->getAttribute('name')) || !empty($translation->getAttribute('title'))) {
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * Get related translations.
      *
